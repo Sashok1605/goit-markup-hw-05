@@ -104,11 +104,24 @@ header {
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link.current {
   color: var(--accent-color);
-  text-decoration: none;
+  position: relative;
+}
+
+.site-nav .link.current::after {
+  position: absolute;
+  bottom: 0;
+  top: 44px;
+  content: "";
+  /* display: flex; */
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 /* Контакты шапка*/
@@ -127,10 +140,12 @@ header {
 .info-nav .link:focus {
   color: var(--accent-color);
   fill: var(--accent-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-icon:hover {
   fill: var(--accent-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .info.list li:first-child {
@@ -195,12 +210,13 @@ header {
   text-align: center;
 }
 
-.button:active,
-.button:focus {
+/* .button:active, */
+.button:hover {
   color: var(--title-text-color1);
   font-family: Roboto, sans-serif;
   background-color: var(--secondary-text-color);
   cursor: pointer;
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button.main {
@@ -215,6 +231,7 @@ header {
   margin-top: 30px;
   border: 1px solid var(--accent-color);
   border-radius: 4px;
+  cursor: pointer;
 }
 
 /* Секция преимущист */
@@ -298,6 +315,29 @@ header {
   margin: 0px;
   margin-bottom: 50px;
 }
+
+.activ-img {
+  position: relative;
+}
+
+.activ-img > h3 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  content: "";
+  width: 370px;
+  height: 70px;
+  top: 224px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
 /* Команда */
 
 .team-headline {
@@ -385,11 +425,13 @@ header {
 .social-icon-link:hover,
 .social-icon-link:focus {
   background-color: var(--accent-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon-link:hover > svg,
 .social-icon-link:focus > svg {
   fill: var(--secondary-text-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon-link > svg {
@@ -447,16 +489,19 @@ header {
 
 .clients-icon:hover > svg {
   fill: var(--accent-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icon:focus > svg {
   fill: var(--accent-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icon:hover,
 .clients-icon:focus {
   border: 1px solid #2196f3;
   fill: var(--accent-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Контакты подвал*/
@@ -508,6 +553,7 @@ header {
 .contacts-nav .link-footer:hover,
 .contacts-nav .link-footer:focus {
   color: var(--accent-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-container {
@@ -544,10 +590,58 @@ header {
   margin-right: 10px;
 }
 
+.modal-box {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+}
+
+.modal-icon {
+  position: absolute;
+  width: 528px;
+  height: 581px;
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.button-close {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: auto;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.button-close {
+  outline: none;
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .button.primary:focus,
 .button.primary:hover {
   color: #ffffff;
   background-color: var(--accent-color);
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button.primary {
@@ -605,18 +699,16 @@ header {
 .project-info {
   margin-left: -2px;
   border: 1px solid #eeeeee;
-  /* box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16); */
 }
 
-.project-info:hover,
-.project-info:focus {
+.project-info:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .project-blok {
   padding: 20px 24px;
+  margin: 0;
 }
 
 .project-title {
@@ -625,7 +717,6 @@ header {
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
-  /* padding: 20px 24px 4px; */
 }
 
 .project-text {
@@ -634,4 +725,31 @@ header {
   font-size: 16px;
   line-height: 1.87;
   letter-spacing: 0.03em;
+}
+
+.project-modal {
+  position: relative;
+  overflow: hidden;
+  width: 370px;
+  height: 294px;
+  top: 0;
+  left: 0;
+}
+
+.project-modal-text {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.project-modal:hover .project-modal-text {
+  top: 0;
+  transition: 250ms top cubic-bezier(0.4, 0, 0.2, 1);
 }
