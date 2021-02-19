@@ -706,9 +706,13 @@ header {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.project-info:focus {
+  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%), 0px 4px 4px rgb(0 0 0 / 6%),
+    1px 4px 6px rgb(0 0 0 / 16%);
+}
+
 .project-blok {
   padding: 20px 24px;
-  margin: 0;
 }
 
 .project-title {
@@ -747,6 +751,7 @@ header {
   color: #ffffff;
   padding: 63px 24px;
   background-color: rgba(33, 150, 243, 0.9);
+  border: 0;
 }
 
 .project-modal:hover .project-modal-text {
